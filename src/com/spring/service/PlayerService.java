@@ -1,5 +1,9 @@
 package com.spring.service;
 
-public interface PlayerService {
+import java.util.List;
 
+import com.spring.model.Player;
+
+public interface PlayerService {
+	public List<Player> AllPlayers();
 }
