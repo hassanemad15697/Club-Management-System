@@ -19,8 +19,8 @@ public class Player {
 	private String playerName;
 	@Column(name = "playerNumber")
 	private int playerNumber;
-	@Column(name = "playerContact")
-	private String playerContact;
+	@Column(name = "playerPosition")
+	private String playerPosition;
 
 	public Player() {
 
@@ -50,12 +50,12 @@ public class Player {
 		this.playerNumber = playerNumber;
 	}
 
-	public String getPlayerContact() {
-		return playerContact;
+	public String getPlayerPosition() {
+		return playerPosition;
 	}
 
-	public void setPlayerContact(String playerContact) {
-		this.playerContact = playerContact;
+	public void setPlayerPosition(String playerPosition) {
+		this.playerPosition = playerPosition;
 	}
 	
 	

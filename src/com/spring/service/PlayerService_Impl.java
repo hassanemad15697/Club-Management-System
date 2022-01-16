@@ -15,11 +15,17 @@ public class PlayerService_Impl implements PlayerService {
 
 	@Autowired
 	private PlayerDAO playerDAO;
+
 	@Override
 	@Transactional
 	public List<Player> AllPlayers() {
 		return playerDAO.getPlayers();
 	}
 
+	@Override
+	@Transactional
+	public void savePlayer(Player player) {
+		playerDAO.addPlayer(player);
+	}
 
 }

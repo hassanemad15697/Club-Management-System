@@ -22,4 +22,11 @@ public class PlayerDAO_Impl implements PlayerDAO{
 		return query.getResultList();
 	}
 
+	@Override
+	public void addPlayer(Player player) {
+		Session session = factory.getCurrentSession();
+		session.saveOrUpdate(player);
+		
+	}
+
 }
