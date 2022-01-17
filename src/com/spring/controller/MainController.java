@@ -44,7 +44,6 @@ public class MainController {
 	public String signupNewUser(@Valid @ModelAttribute("playerData") Player player, BindingResult bindingResult,
 			Model model) {
 		System.out.println(bindingResult);
-		player.setPlayerID(5);
 		playerService.savePlayer(player);
 		// redirect to player list = calling addPlayer method
 		return "redirect:players-list";
@@ -56,5 +55,13 @@ public class MainController {
 		Player player = playerService.getPlayer(id);
 		model.addAttribute("playerData", player);
 		return "add-player";
+	}
+
+	@RequestMapping("/deletePlayer")
+	public String deletePlayer(@RequestParam("playerID") int id) {
+		Player player = new Player();
+		player.setPlayerID(id);
+		playerService.deletePlayer(player);
+		return "redirect:players-list";
 	}
 }

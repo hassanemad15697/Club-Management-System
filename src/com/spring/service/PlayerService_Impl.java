@@ -19,7 +19,7 @@ public class PlayerService_Impl implements PlayerService {
 	@Override
 	@Transactional
 	public List<Player> AllPlayers() {
-		return playerDAO.getPlayers();
+		return playerDAO.getAllPlayers();
 	}
 
 	@Override
@@ -32,6 +32,12 @@ public class PlayerService_Impl implements PlayerService {
 	@Transactional
 	public Player getPlayer(int id) {
 		return playerDAO.getPlayer(id);
+	}
+
+	@Override
+	@Transactional
+	public void deletePlayer(Player player) {
+		playerDAO.deletePlayer(player);
 	}
 
 }

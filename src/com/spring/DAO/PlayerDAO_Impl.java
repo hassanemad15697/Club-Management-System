@@ -16,7 +16,7 @@ public class PlayerDAO_Impl implements PlayerDAO{
 	private SessionFactory factory ;
 	
 	@Override
-	public List<Player> getPlayers() {
+	public List<Player> getAllPlayers() {
 		Session session = factory.getCurrentSession();
 		Query<Player> query= session.createQuery("from Player",Player.class);
 		return query.getResultList();
@@ -33,6 +33,12 @@ public class PlayerDAO_Impl implements PlayerDAO{
 	public Player getPlayer(int id) {
 		Session session = factory.getCurrentSession();
 		return session.get(Player.class, id);
+	}
+
+	@Override
+	public void deletePlayer(Player player) {
+		Session session = factory.getCurrentSession();
+		session.delete(player);
 	}
 
 }

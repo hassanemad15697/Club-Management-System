@@ -35,7 +35,10 @@
 							<c:param name="playerID" value="${player.playerID}"/>
 						</c:url>
 						<a href="${editPlayer}" type="button" class="btn btn-primary">Edit</a>
-						<a href="${editPlayer}" type="button" class="btn btn-danger">Delete</a>
+						<c:url var="deletePlayer" value="/deletePlayer">
+							<c:param name="playerID" value="${player.playerID}"/>
+						</c:url>
+						<a href="${deletePlayer}" type="button" class="btn btn-danger">Delete</a>
 					</td>
 				</tr>
 			</c:forEach>
