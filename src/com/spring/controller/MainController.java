@@ -11,6 +11,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.spring.model.Player;
 import com.spring.service.PlayerService;
@@ -33,22 +34,27 @@ public class MainController {
 	}
 
 	@RequestMapping("/add-player")
-	public String addplayer(Model model) {
-
+	public String addPlayer(Model model) {
 		Player player = new Player();
 		model.addAttribute("playerData", player);
 		return "add-player";
 	}
-	
-	@RequestMapping("/addNewPlayer")
-	public String signupNewUser(@Valid @ModelAttribute("playerData") Player player, BindingResult bindingResult,Model model) {
-		System.out.println(bindingResult);
-		if (bindingResult.hasErrors()) {
 
-			return "add-player";
-		} else {
-			playerService.savePlayer(player);
-			return "players-list";
-		}
+	@RequestMapping("/addNewPlayer")
+	public String signupNewUser(@Valid @ModelAttribute("playerData") Player player, BindingResult bindingResult,
+			Model model) {
+		System.out.println(bindingResult);
+		player.setPlayerID(5);
+		playerService.savePlayer(player);
+		// redirect to player list = calling addPlayer method
+		return "redirect:players-list";
+
+	}
+
+	@RequestMapping("/updatePlayer")
+	public String updatePlayer(Model model, @RequestParam("playerID") int id) {
+		Player player = playerService.getPlayer(id);
+		model.addAttribute("playerData", player);
+		return "add-player";
 	}
 }

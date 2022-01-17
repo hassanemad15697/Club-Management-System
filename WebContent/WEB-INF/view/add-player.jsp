@@ -15,7 +15,7 @@
 </head>
 <body>
 	<h1>Add Player</h1>
-	<f:form modelAttribute="playerData" action="addNewPlayer">
+	<f:form modelAttribute="playerData" action="addNewPlayer" method="POST">
 		Name: <f:input path="playerName" />
 		<f:errors path="playerName" cssClass="error" />
 		<br>

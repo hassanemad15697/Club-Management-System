@@ -31,8 +31,11 @@
 					<td>${player.playerNumber}</td>
 					<td>${player.playerPosition}</td>
 					<td>
-						<button type="button" class="btn btn-primary">Edit</button>
-						<button type="button" class="btn btn-danger">Delete</button>
+						<c:url var="editPlayer" value="/updatePlayer">
+							<c:param name="playerID" value="${player.playerID}"/>
+						</c:url>
+						<a href="${editPlayer}" type="button" class="btn btn-primary">Edit</a>
+						<a href="${editPlayer}" type="button" class="btn btn-danger">Delete</a>
 					</td>
 				</tr>
 			</c:forEach>

@@ -29,4 +29,10 @@ public class PlayerDAO_Impl implements PlayerDAO{
 		
 	}
 
+	@Override
+	public Player getPlayer(int id) {
+		Session session = factory.getCurrentSession();
+		return session.get(Player.class, id);
+	}
+
 }

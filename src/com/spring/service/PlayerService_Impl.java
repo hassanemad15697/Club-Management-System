@@ -28,4 +28,10 @@ public class PlayerService_Impl implements PlayerService {
 		playerDAO.addPlayer(player);
 	}
 
+	@Override
+	@Transactional
+	public Player getPlayer(int id) {
+		return playerDAO.getPlayer(id);
+	}
+
 }

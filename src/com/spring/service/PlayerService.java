@@ -6,5 +6,8 @@ import com.spring.model.Player;
 
 public interface PlayerService {
 	public List<Player> AllPlayers();
+
 	public void savePlayer(Player player);
+
+	public Player getPlayer(int id);
 }
